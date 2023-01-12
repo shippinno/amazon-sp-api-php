@@ -148,7 +148,9 @@ class Weight implements ModelInterface, ArrayAccess
     }
 
     const UNIT_KG = 'KG';
+    const UNIT_KILOGRAMS = 'KILOGRAMS';
     const UNIT_LB = 'LB';
+    const UNIT_POUNDS = 'POUNDS';
 
     /**
      * Gets allowable values of the enum.
@@ -159,7 +161,10 @@ class Weight implements ModelInterface, ArrayAccess
     {
         return [
             self::UNIT_KG,
-self::UNIT_LB,        ];
+            self::UNIT_KILOGRAMS,
+            self::UNIT_LB,
+            self::UNIT_POUNDS,
+        ];
     }
 
     /**
