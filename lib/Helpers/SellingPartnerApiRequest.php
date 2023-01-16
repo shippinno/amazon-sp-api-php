@@ -168,6 +168,9 @@ trait SellingPartnerApiRequest
                 throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());
             }
         }
+        if (is_array($this->config->getOptions())) {
+            $options = array_merge($options, $this->config->getOptions());
+        }
 
         return $options;
     }

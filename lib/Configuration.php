@@ -91,6 +91,8 @@ class Configuration
     protected $secretKey;
     /** @var string|null */
     protected $region;
+    /** @var array|null */
+    protected $options = null;
 
     /**
      * Constructor.
@@ -427,5 +429,21 @@ class Configuration
     public function setRegion(?string $region): void
     {
         $this->region = $region;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getOptions(): ?array
+    {
+        return $this->options;
+    }
+
+    /**
+     * @param array|null $options
+     */
+    public function setOptions(?array $options): void
+    {
+        $this->options = $options;
     }
 }
