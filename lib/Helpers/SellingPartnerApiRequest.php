@@ -105,7 +105,7 @@ trait SellingPartnerApiRequest
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? $e->getResponse()->getBody()->__String() : null);
             }
             $statusCode = $response->getStatusCode();
 
@@ -117,7 +117,7 @@ trait SellingPartnerApiRequest
             if ('\SplFileObject' === $returnType) {
                 $content = $responseBody; //stream goes to serializer
             } else {
-                $content = $responseBody->getContents();
+                $content = $responseBody->__toString();
                 if (!in_array($returnType, ['string', 'integer', 'bool'])) {
                     $content = json_decode($content);
                 }
@@ -190,7 +190,7 @@ trait SellingPartnerApiRequest
                     if ('\SplFileObject' === $returnType) {
                         $content = $responseBody; //stream goes to serializer
                     } else {
-                        $content = $responseBody->getContents();
+                        $content = $responseBody->__toString();
                         if ('string' !== $returnType) {
                             $content = json_decode($content);
                         }
