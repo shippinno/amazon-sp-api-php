@@ -823,7 +823,7 @@ class ReportsApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? $e->getResponse()->getBody()->__toString() : null);
             }
 
             $statusCode = $response->getStatusCode();
@@ -836,7 +836,7 @@ class ReportsApi
             if ('\SplFileObject' === $returnType) {
                 $content = $responseBody; //stream goes to serializer
             } else {
-                $content = $responseBody->getContents();
+                $content = $responseBody->__toString();
                 if (!in_array($returnType, ['string', 'integer', 'bool'])) {
                     $content = json_decode($content);
                 }
