@@ -264,6 +264,12 @@ class ObjectSerializer
             settype($data, $class);
 
             return $data;
+        } elseif (method_exists($class, 'getModelName') && in_array($class::getModelName(), ['Timestamp', 'Decimal'], true)) {
+            settype($data, 'string');
+            return $data;
+        } elseif (method_exists($class, 'getModelName') && 'Quantity' === $class::getModelName()) {
+            settype($data, 'int');
+            return $data;
         } elseif ('\SplFileObject' === $class) {
             /* @var \Psr\Http\Message\StreamInterface $data */
 
