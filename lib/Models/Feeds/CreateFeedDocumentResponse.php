@@ -46,8 +46,9 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'payload' => '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CreateFeedDocumentResult',
-'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\ErrorList',    ];
+        'feed_document_id' => 'string',
+        'url' => 'string',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -55,8 +56,9 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null,    ];
+        'feed_document_id' => null,
+        'url' => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -85,8 +87,9 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors',    ];
+        'feed_document_id' => 'feedDocumentId',
+        'url' => 'url',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -94,8 +97,9 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors',    ];
+        'feed_document_id' => 'setFeedDocumentId',
+        'url' => 'setUrl',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -103,8 +107,9 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors',    ];
+        'feed_document_id' => 'getFeedDocumentId',
+        'url' => 'getUrl',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -162,8 +167,8 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['feed_document_id'] = isset($data['feed_document_id']) ? $data['feed_document_id'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -174,6 +179,13 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (null === $this->container['feed_document_id']) {
+            $invalidProperties[] = "'feed_document_id' can't be null";
+        }
+        if (null === $this->container['url']) {
+            $invalidProperties[] = "'url' can't be null";
+        }
 
         return $invalidProperties;
     }
@@ -190,49 +202,49 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets payload.
+     * Gets feed_document_id.
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CreateFeedDocumentResult
+     * @return string
      */
-    public function getPayload()
+    public function getFeedDocumentId()
     {
-        return $this->container['payload'];
+        return $this->container['feed_document_id'];
     }
 
     /**
-     * Sets payload.
+     * Sets feed_document_id.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CreateFeedDocumentResult $payload payload
+     * @param string $feed_document_id the identifier of the feed document
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setFeedDocumentId($feed_document_id)
     {
-        $this->container['payload'] = $payload;
+        $this->container['feed_document_id'] = $feed_document_id;
 
         return $this;
     }
 
     /**
-     * Gets errors.
+     * Gets url.
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\ErrorList
+     * @return string
      */
-    public function getErrors()
+    public function getUrl()
     {
-        return $this->container['errors'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets errors.
+     * Sets url.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\ErrorList $errors errors
+     * @param string $url The presigned URL for uploading the feed contents. This URL expires after 5 minutes.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setUrl($url)
     {
-        $this->container['errors'] = $errors;
+        $this->container['url'] = $url;
 
         return $this;
     }
