@@ -44,9 +44,9 @@ class ReportDocument implements ModelInterface, ArrayAccess
      */
     protected static $swaggerTypes = [
         'report_document_id' => 'string',
-'url' => 'string',
-'encryption_details' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportDocumentEncryptionDetails',
-'compression_algorithm' => 'string',    ];
+        'url' => 'string',
+        'compression_algorithm' => 'string',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -55,9 +55,9 @@ class ReportDocument implements ModelInterface, ArrayAccess
      */
     protected static $swaggerFormats = [
         'report_document_id' => null,
-'url' => null,
-'encryption_details' => null,
-'compression_algorithm' => null,    ];
+        'url' => null,
+        'compression_algorithm' => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -87,9 +87,9 @@ class ReportDocument implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'report_document_id' => 'reportDocumentId',
-'url' => 'url',
-'encryption_details' => 'encryptionDetails',
-'compression_algorithm' => 'compressionAlgorithm',    ];
+        'url' => 'url',
+        'compression_algorithm' => 'compressionAlgorithm',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -98,9 +98,9 @@ class ReportDocument implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'report_document_id' => 'setReportDocumentId',
-'url' => 'setUrl',
-'encryption_details' => 'setEncryptionDetails',
-'compression_algorithm' => 'setCompressionAlgorithm',    ];
+        'url' => 'setUrl',
+        'compression_algorithm' => 'setCompressionAlgorithm',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -109,9 +109,9 @@ class ReportDocument implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'report_document_id' => 'getReportDocumentId',
-'url' => 'getUrl',
-'encryption_details' => 'getEncryptionDetails',
-'compression_algorithm' => 'getCompressionAlgorithm',    ];
+        'url' => 'getUrl',
+        'compression_algorithm' => 'getCompressionAlgorithm',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -184,7 +184,6 @@ class ReportDocument implements ModelInterface, ArrayAccess
     {
         $this->container['report_document_id'] = isset($data['report_document_id']) ? $data['report_document_id'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['encryption_details'] = isset($data['encryption_details']) ? $data['encryption_details'] : null;
         $this->container['compression_algorithm'] = isset($data['compression_algorithm']) ? $data['compression_algorithm'] : null;
     }
 
@@ -202,9 +201,6 @@ class ReportDocument implements ModelInterface, ArrayAccess
         }
         if (null === $this->container['url']) {
             $invalidProperties[] = "'url' can't be null";
-        }
-        if (null === $this->container['encryption_details']) {
-            $invalidProperties[] = "'encryption_details' can't be null";
         }
         $allowedValues = $this->getCompressionAlgorithmAllowableValues();
         if (!is_null($this->container['compression_algorithm']) && !in_array($this->container['compression_algorithm'], $allowedValues, true)) {
@@ -272,30 +268,6 @@ class ReportDocument implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets encryption_details.
-     *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportDocumentEncryptionDetails
-     */
-    public function getEncryptionDetails()
-    {
-        return $this->container['encryption_details'];
-    }
-
-    /**
-     * Sets encryption_details.
-     *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportDocumentEncryptionDetails $encryption_details encryption_details
-     *
-     * @return $this
-     */
-    public function setEncryptionDetails($encryption_details)
-    {
-        $this->container['encryption_details'] = $encryption_details;
 
         return $this;
     }

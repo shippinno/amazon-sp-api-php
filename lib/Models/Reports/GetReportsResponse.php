@@ -46,9 +46,9 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'payload' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportList',
-'next_token' => 'string',
-'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\ErrorList',    ];
+        'reports' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportList',
+        'next_token' => 'string',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -56,9 +56,9 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'payload' => null,
-'next_token' => null,
-'errors' => null,    ];
+        'reports' => null,
+        'next_token' => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -87,9 +87,9 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'next_token' => 'nextToken',
-'errors' => 'errors',    ];
+        'reports' => 'reports',
+        'next_token' => 'nextToken',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -97,9 +97,9 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'next_token' => 'setNextToken',
-'errors' => 'setErrors',    ];
+        'reports' => 'setReports',
+        'next_token' => 'setNextToken',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -107,9 +107,9 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'next_token' => 'getNextToken',
-'errors' => 'getErrors',    ];
+        'reports' => 'getReports',
+        'next_token' => 'getNextToken',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -167,9 +167,8 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['reports'] = isset($data['reports']) ? $data['reports'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
     /**
@@ -200,21 +199,21 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      *
      * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportList
      */
-    public function getPayload()
+    public function getReports()
     {
-        return $this->container['payload'];
+        return $this->container['reports'];
     }
 
     /**
      * Sets payload.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportList $payload payload
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportList $reports payload
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setReports($reports)
     {
-        $this->container['payload'] = $payload;
+        $this->container['reports'] = $reports;
 
         return $this;
     }
@@ -239,30 +238,6 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors.
-     *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ErrorList
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors.
-     *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ErrorList $errors errors
-     *
-     * @return $this
-     */
-    public function setErrors($errors)
-    {
-        $this->container['errors'] = $errors;
 
         return $this;
     }

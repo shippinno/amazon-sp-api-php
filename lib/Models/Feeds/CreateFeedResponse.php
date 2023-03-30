@@ -46,8 +46,8 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'payload' => '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CreateFeedResult',
-'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\ErrorList',    ];
+        'feed_id' => 'string',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -55,8 +55,8 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null,    ];
+        'feed_id' => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -85,8 +85,8 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors',    ];
+        'feed_id' => 'feedId',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -94,8 +94,8 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors',    ];
+        'feed_id' => 'setFeedId',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -103,8 +103,8 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors',    ];
+        'feed_id' => 'getFeedId',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -162,8 +162,7 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['feed_id'] = isset($data['feed_id']) ? $data['feed_id'] : null;
     }
 
     /**
@@ -174,6 +173,10 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (null === $this->container['feed_id']) {
+            $invalidProperties[] = "'feed_id' can't be null";
+        }
 
         return $invalidProperties;
     }
@@ -189,50 +192,27 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
         return 0 === count($this->listInvalidProperties());
     }
 
+
     /**
-     * Gets payload.
+     * Gets feed_id.
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CreateFeedResult
+     * @return string
      */
-    public function getPayload()
+    public function getFeedId()
     {
-        return $this->container['payload'];
+        return $this->container['feed_id'];
     }
 
     /**
-     * Sets payload.
+     * Sets feed_id.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CreateFeedResult $payload payload
+     * @param string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID.
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setFeedId($feed_id)
     {
-        $this->container['payload'] = $payload;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors.
-     *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\ErrorList
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors.
-     *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\ErrorList $errors errors
-     *
-     * @return $this
-     */
-    public function setErrors($errors)
-    {
-        $this->container['errors'] = $errors;
+        $this->container['feed_id'] = $feed_id;
 
         return $this;
     }
