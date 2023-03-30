@@ -145,7 +145,7 @@ trait SellingPartnerApiRequest
                     if (in_array($model, ['Reports', 'Feeds'])) {
                         $obj = json_decode($content);
                         $content = $obj->errors ?? $obj;
-                        $returnType = "\ClouSale\AmazonSellingPartnerAPI\Models\{$model}\ErrorList";
+                        $returnType = sprintf('\ClouSale\AmazonSellingPartnerAPI\Models\%s\ErrorList', $model);
                     }
 
                     $data = ObjectSerializer::deserialize(
