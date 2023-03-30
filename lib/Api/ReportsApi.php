@@ -10,7 +10,7 @@
  *
  * The Selling Partner API for Reports lets you retrieve and manage a variety of reports that can help selling partners manage their businesses.
  *
- * OpenAPI spec version: 2020-09-04
+ * OpenAPI spec version: 2021-06-30
  */
 
 namespace ClouSale\AmazonSellingPartnerAPI\Api;
@@ -19,16 +19,15 @@ use ClouSale\AmazonSellingPartnerAPI\ApiException;
 use ClouSale\AmazonSellingPartnerAPI\Configuration;
 use ClouSale\AmazonSellingPartnerAPI\HeaderSelector;
 use ClouSale\AmazonSellingPartnerAPI\Helpers\SellingPartnerApiRequest;
-use ClouSale\AmazonSellingPartnerAPI\Models\Reports\CancelReportResponse;
 use ClouSale\AmazonSellingPartnerAPI\Models\Reports\CancelReportScheduleResponse;
 use ClouSale\AmazonSellingPartnerAPI\Models\Reports\CreateReportResponse;
 use ClouSale\AmazonSellingPartnerAPI\Models\Reports\CreateReportScheduleResponse;
 use ClouSale\AmazonSellingPartnerAPI\Models\Reports\CreateReportSpecification;
-use ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportDocumentResponse;
-use ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportResponse;
-use ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportScheduleResponse;
 use ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportSchedulesResponse;
 use ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportsResponse;
+use ClouSale\AmazonSellingPartnerAPI\Models\Reports\Report;
+use ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportDocument;
+use ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportSchedule;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -81,7 +80,7 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @throws ApiException              on non-2xx response
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\CancelReportResponse
+     * @return null
      */
     public function cancelReport($report_id)
     {
@@ -98,13 +97,13 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @throws ApiException              on non-2xx response
      *
-     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Reports\CancelReportResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return null
      */
     public function cancelReportWithHttpInfo($report_id)
     {
         $request = $this->cancelReportRequest($report_id);
 
-        return $this->sendRequest($request, CancelReportResponse::class);
+        return $this->sendRequest($request, 'void');
     }
 
     /**
@@ -137,10 +136,9 @@ class ReportsApi
      */
     public function cancelReportAsyncWithHttpInfo($report_id)
     {
-        $returnType = '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\CancelReportResponse';
         $request = $this->cancelReportRequest($report_id);
 
-        return $this->sendRequestAsync($request, CancelReportResponse::class);
+        return $this->sendRequestAsync($request, 'void');
     }
 
     /**
@@ -159,7 +157,7 @@ class ReportsApi
             throw new \InvalidArgumentException('Missing the required parameter $report_id when calling cancelReport');
         }
 
-        $resourcePath = '/reports/2020-09-04/reports/{reportId}';
+        $resourcePath = '/reports/2021-06-30/reports/{reportId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -263,7 +261,7 @@ class ReportsApi
             throw new \InvalidArgumentException('Missing the required parameter $report_schedule_id when calling cancelReportSchedule');
         }
 
-        $resourcePath = '/reports/2020-09-04/schedules/{reportScheduleId}';
+        $resourcePath = '/reports/2021-06-30/schedules/{reportScheduleId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -368,7 +366,7 @@ class ReportsApi
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createReport');
         }
 
-        $resourcePath = '/reports/2020-09-04/reports';
+        $resourcePath = '/reports/2021-06-30/reports';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -463,7 +461,7 @@ class ReportsApi
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createReportSchedule');
         }
 
-        $resourcePath = '/reports/2020-09-04/schedules';
+        $resourcePath = '/reports/2021-06-30/schedules';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -481,7 +479,7 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @throws ApiException              on non-2xx response
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportResponse
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\Report
      */
     public function getReport($report_id)
     {
@@ -498,13 +496,13 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @throws ApiException              on non-2xx response
      *
-     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Reports\Report, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportWithHttpInfo($report_id)
     {
         $request = $this->getReportRequest($report_id);
 
-        return $this->sendRequest($request, GetReportResponse::class);
+        return $this->sendRequest($request, Report::class);
     }
 
     /**
@@ -539,7 +537,7 @@ class ReportsApi
     {
         $request = $this->getReportRequest($report_id);
 
-        return $this->sendRequestAsync($request, GetReportResponse::class);
+        return $this->sendRequestAsync($request, Report::class);
     }
 
     /**
@@ -558,7 +556,7 @@ class ReportsApi
             throw new \InvalidArgumentException('Missing the required parameter $report_id when calling getReport');
         }
 
-        $resourcePath = '/reports/2020-09-04/reports/{reportId}';
+        $resourcePath = '/reports/2021-06-30/reports/{reportId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -585,7 +583,7 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @throws ApiException              on non-2xx response
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportDocumentResponse
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportDocument
      */
     public function getReportDocument($report_document_id)
     {
@@ -602,13 +600,13 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @throws ApiException              on non-2xx response
      *
-     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportDocument, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportDocumentWithHttpInfo($report_document_id)
     {
         $request = $this->getReportDocumentRequest($report_document_id);
 
-        return $this->sendRequest($request, GetReportDocumentResponse::class);
+        return $this->sendRequest($request, ReportDocument::class);
     }
 
     /**
@@ -643,7 +641,7 @@ class ReportsApi
     {
         $request = $this->getReportDocumentRequest($report_document_id);
 
-        return $this->sendRequestAsync($request, GetReportDocumentResponse::class);
+        return $this->sendRequestAsync($request, ReportDocument::class);
     }
 
     /**
@@ -662,7 +660,7 @@ class ReportsApi
             throw new \InvalidArgumentException('Missing the required parameter $report_document_id when calling getReportDocument');
         }
 
-        $resourcePath = '/reports/2020-09-04/documents/{reportDocumentId}';
+        $resourcePath = '/reports/2021-06-30/documents/{reportDocumentId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -689,7 +687,7 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @throws ApiException              on non-2xx response
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportScheduleResponse
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportSchedule
      */
     public function getReportSchedule($report_schedule_id)
     {
@@ -706,13 +704,13 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @throws ApiException              on non-2xx response
      *
-     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportScheduleResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportSchedule, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportScheduleWithHttpInfo($report_schedule_id)
     {
         $request = $this->getReportScheduleRequest($report_schedule_id);
 
-        return $this->sendRequest($request, GetReportScheduleResponse::class);
+        return $this->sendRequest($request, ReportSchedule::class);
     }
 
     /**
@@ -747,7 +745,7 @@ class ReportsApi
     {
         $request = $this->getReportScheduleRequest($report_schedule_id);
 
-        return $this->sendRequestAsync($request, GetReportScheduleResponse::class);
+        return $this->sendRequestAsync($request, ReportSchedule::class);
     }
 
     /**
@@ -766,7 +764,7 @@ class ReportsApi
             throw new \InvalidArgumentException('Missing the required parameter $report_schedule_id when calling getReportSchedule');
         }
 
-        $resourcePath = '/reports/2020-09-04/schedules/{reportScheduleId}';
+        $resourcePath = '/reports/2021-06-30/schedules/{reportScheduleId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -817,113 +815,6 @@ class ReportsApi
         $request = $this->getReportSchedulesRequest($report_types);
 
         return $this->sendRequest($request, GetReportSchedulesResponse::class);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? $e->getResponse()->getBody()->__toString() : null);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
-            }
-
-            $responseBody = $response->getBody();
-            if ('\SplFileObject' === $returnType) {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->__toString();
-                if (!in_array($returnType, ['string', 'integer', 'bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders(),
-            ];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportSchedulesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportSchedulesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportSchedulesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportSchedulesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportSchedulesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportSchedulesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportSchedulesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportSchedulesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\GetReportSchedulesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
     }
 
     /**
@@ -977,7 +868,7 @@ class ReportsApi
             throw new \InvalidArgumentException('Missing the required parameter $report_types when calling getReportSchedules');
         }
 
-        $resourcePath = '/reports/2020-09-04/schedules';
+        $resourcePath = '/reports/2021-06-30/schedules';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1106,7 +997,7 @@ class ReportsApi
      */
     protected function getReportsRequest($report_types = null, $processing_statuses = null, $marketplace_ids = null, $page_size = '10', $created_since = null, $created_until = null, $next_token = null)
     {
-        $resourcePath = '/reports/2020-09-04/reports';
+        $resourcePath = '/reports/2021-06-30/reports';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

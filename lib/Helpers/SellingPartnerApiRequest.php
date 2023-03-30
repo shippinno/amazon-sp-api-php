@@ -140,8 +140,16 @@ trait SellingPartnerApiRequest
                 case 401:
                 case 400:
                 case 200:
+                    $content = $e->getResponseBody();
+                    $model = basename(dirname(strtr($returnType, '\\', '/')));
+                    if (in_array($model, ['Reports', 'Feeds'])) {
+                        $obj = json_decode($content);
+                        $content = $obj->errors ?? $obj;
+                        $returnType = sprintf('\ClouSale\AmazonSellingPartnerAPI\Models\%s\ErrorList', $model);
+                    }
+
                     $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
+                        $content,
                         $returnType,
                         $e->getResponseHeaders()
                     );

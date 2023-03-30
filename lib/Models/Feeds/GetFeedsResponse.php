@@ -46,9 +46,9 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'payload' => '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedList',
-'next_token' => 'string',
-'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\ErrorList',    ];
+        'feeds' => '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedList',
+        'next_token' => 'string',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -56,9 +56,9 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'payload' => null,
-'next_token' => null,
-'errors' => null,    ];
+        'feeds' => null,
+        'next_token' => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -87,9 +87,9 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'next_token' => 'nextToken',
-'errors' => 'errors',    ];
+        'feeds' => 'feeds',
+        'next_token' => 'nextToken',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -97,9 +97,9 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'next_token' => 'setNextToken',
-'errors' => 'setErrors',    ];
+        'feeds' => 'setFeeds',
+        'next_token' => 'setNextToken',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -107,9 +107,9 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'next_token' => 'getNextToken',
-'errors' => 'getErrors',    ];
+        'feeds' => 'getFeeds',
+        'next_token' => 'getNextToken',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -167,9 +167,8 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['feeds'] = isset($data['feeds']) ? $data['feeds'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
     /**
@@ -200,21 +199,21 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      *
      * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedList
      */
-    public function getPayload()
+    public function getFeeds()
     {
-        return $this->container['payload'];
+        return $this->container['feeds'];
     }
 
     /**
      * Sets payload.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedList $payload payload
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedList $feeds
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setFeeds($feeds)
     {
-        $this->container['payload'] = $payload;
+        $this->container['feeds'] = $feeds;
 
         return $this;
     }
@@ -239,30 +238,6 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors.
-     *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\ErrorList
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors.
-     *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\ErrorList $errors errors
-     *
-     * @return $this
-     */
-    public function setErrors($errors)
-    {
-        $this->container['errors'] = $errors;
 
         return $this;
     }

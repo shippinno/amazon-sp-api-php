@@ -46,8 +46,8 @@ class CreateReportScheduleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'payload' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\CreateReportScheduleResult',
-'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\ErrorList',    ];
+        'report_schedule_id' => 'string',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -55,8 +55,8 @@ class CreateReportScheduleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null,    ];
+        'report_schedule_id' => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -85,8 +85,8 @@ class CreateReportScheduleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors',    ];
+        'report_schedule_id' => 'reportScheduleId',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -94,8 +94,8 @@ class CreateReportScheduleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors',    ];
+        'report_schedule_id' => 'setReportScheduleId',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -103,8 +103,8 @@ class CreateReportScheduleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors',    ];
+        'report_schedule_id' => 'getReportScheduleId',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -162,8 +162,7 @@ class CreateReportScheduleResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['report_schedule_id'] = isset($data['report_schedule_id']) ? $data['report_schedule_id'] : null;
     }
 
     /**
@@ -192,47 +191,23 @@ class CreateReportScheduleResponse implements ModelInterface, ArrayAccess
     /**
      * Gets payload.
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\CreateReportScheduleResult
+     * @return string
      */
-    public function getPayload()
+    public function getReportScheduleId()
     {
-        return $this->container['payload'];
+        return $this->container['report_schedule_id'];
     }
 
     /**
      * Sets payload.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Reports\CreateReportScheduleResult $payload payload
+     * @param string $reportScheduleId
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setReportScheduleId($reportScheduleId)
     {
-        $this->container['payload'] = $payload;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors.
-     *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ErrorList
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors.
-     *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ErrorList $errors errors
-     *
-     * @return $this
-     */
-    public function setErrors($errors)
-    {
-        $this->container['errors'] = $errors;
+        $this->container['report_schedule_id'] = $reportScheduleId;
 
         return $this;
     }

@@ -10,7 +10,7 @@
  *
  * The Selling Partner API for Feeds lets you upload data to Amazon on behalf of a selling partner.
  *
- * OpenAPI spec version: 2020-09-04
+ * OpenAPI spec version: 2021-06-30
  */
 
 namespace ClouSale\AmazonSellingPartnerAPI\Api;
@@ -18,11 +18,10 @@ namespace ClouSale\AmazonSellingPartnerAPI\Api;
 use ClouSale\AmazonSellingPartnerAPI\Configuration;
 use ClouSale\AmazonSellingPartnerAPI\HeaderSelector;
 use ClouSale\AmazonSellingPartnerAPI\Helpers\SellingPartnerApiRequest;
-use ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CancelFeedResponse;
 use ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CreateFeedDocumentResponse;
 use ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CreateFeedResponse;
-use ClouSale\AmazonSellingPartnerAPI\Models\Feeds\GetFeedDocumentResponse;
-use ClouSale\AmazonSellingPartnerAPI\Models\Feeds\GetFeedResponse;
+use ClouSale\AmazonSellingPartnerAPI\Models\Feeds\Feed;
+use ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedDocument;
 use ClouSale\AmazonSellingPartnerAPI\Models\Feeds\GetFeedsResponse;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 use GuzzleHttp\Client;
@@ -92,14 +91,13 @@ class FeedsApi
      * @throws \InvalidArgumentException
      * @throws \ClouSale\AmazonSellingPartnerAPI\ApiException on non-2xx response
      *
-     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CancelFeedResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return null HTTP status code, HTTP response headers (null)
      */
     public function cancelFeedWithHttpInfo($feed_id)
     {
-        $returnType = '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CancelFeedResponse';
         $request = $this->cancelFeedRequest($feed_id);
 
-        return $this->sendRequest($request, CancelFeedResponse::class);
+        return $this->sendRequest($request, 'void');
     }
 
     /**
@@ -134,7 +132,7 @@ class FeedsApi
     {
         $request = $this->cancelFeedRequest($feed_id);
 
-        return $this->sendRequestAsync($request, CancelFeedResponse::class);
+        return $this->sendRequestAsync($request, 'void');
     }
 
     /**
@@ -153,7 +151,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $feed_id when calling cancelFeed');
         }
 
-        $resourcePath = '/feeds/2020-09-04/feeds/{feedId}';
+        $resourcePath = '/feeds/2021-06-30/feeds/{feedId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -201,7 +199,6 @@ class FeedsApi
      */
     public function createFeedWithHttpInfo($body)
     {
-        $returnType = '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\CreateFeedResponse';
         $request = $this->createFeedRequest($body);
 
         return $this->sendRequest($request, CreateFeedResponse::class);
@@ -258,7 +255,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createFeed');
         }
 
-        $resourcePath = '/feeds/2020-09-04/feeds';
+        $resourcePath = '/feeds/2021-06-30/feeds';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -353,7 +350,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createFeedDocument');
         }
 
-        $resourcePath = '/feeds/2020-09-04/documents';
+        $resourcePath = '/feeds/2021-06-30/documents';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -388,14 +385,13 @@ class FeedsApi
      * @throws \InvalidArgumentException
      * @throws \ClouSale\AmazonSellingPartnerAPI\ApiException on non-2xx response
      *
-     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\GetFeedResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\Feed, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeedWithHttpInfo($feed_id)
     {
-        $returnType = '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\GetFeedResponse';
         $request = $this->getFeedRequest($feed_id);
 
-        return $this->sendRequest($request, GetFeedResponse::class);
+        return $this->sendRequest($request, Feed::class);
     }
 
     /**
@@ -428,10 +424,9 @@ class FeedsApi
      */
     public function getFeedAsyncWithHttpInfo($feed_id)
     {
-        $returnType = '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\GetFeedResponse';
         $request = $this->getFeedRequest($feed_id);
 
-        return $this->sendRequestAsync($request, GetFeedResponse::class);
+        return $this->sendRequestAsync($request, Feed::class);
     }
 
     /**
@@ -450,7 +445,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $feed_id when calling getFeed');
         }
 
-        $resourcePath = '/feeds/2020-09-04/feeds/{feedId}';
+        $resourcePath = '/feeds/2021-06-30/feeds/{feedId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -477,7 +472,7 @@ class FeedsApi
      * @throws \InvalidArgumentException
      * @throws \ClouSale\AmazonSellingPartnerAPI\ApiException on non-2xx response
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\GetFeedDocumentResponse
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedDocument
      */
     public function getFeedDocument($feed_document_id)
     {
@@ -494,13 +489,13 @@ class FeedsApi
      * @throws \InvalidArgumentException
      * @throws \ClouSale\AmazonSellingPartnerAPI\ApiException on non-2xx response
      *
-     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\GetFeedDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedDocument, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeedDocumentWithHttpInfo($feed_document_id)
     {
         $request = $this->getFeedDocumentRequest($feed_document_id);
 
-        return $this->sendRequest($request, GetFeedDocumentResponse::class);
+        return $this->sendRequest($request, FeedDocument::class);
     }
 
     /**
@@ -535,7 +530,7 @@ class FeedsApi
     {
         $request = $this->getFeedDocumentRequest($feed_document_id);
 
-        return $this->sendRequestAsync($request, GetFeedDocumentResponse::class);
+        return $this->sendRequestAsync($request, FeedDocument::class);
     }
 
     /**
@@ -554,7 +549,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $feed_document_id when calling getFeedDocument');
         }
 
-        $resourcePath = '/feeds/2020-09-04/documents/{feedDocumentId}';
+        $resourcePath = '/feeds/2021-06-30/documents/{feedDocumentId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -661,7 +656,6 @@ class FeedsApi
      */
     public function getFeedsAsyncWithHttpInfo($feed_types = null, $marketplace_ids = null, $page_size = '10', $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
     {
-        $returnType = '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\GetFeedsResponse';
         $request = $this->getFeedsRequest($feed_types, $marketplace_ids, $page_size, $processing_statuses, $created_since, $created_until, $next_token);
 
         return $this->sendRequestAsync($request, GetFeedsResponse::class);
@@ -684,7 +678,7 @@ class FeedsApi
      */
     protected function getFeedsRequest($feed_types = null, $marketplace_ids = null, $page_size = '10', $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
     {
-        $resourcePath = '/feeds/2020-09-04/feeds';
+        $resourcePath = '/feeds/2021-06-30/feeds';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
