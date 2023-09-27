@@ -368,7 +368,7 @@ class FeedsApi
      * @throws \InvalidArgumentException
      * @throws \ClouSale\AmazonSellingPartnerAPI\ApiException on non-2xx response
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\GetFeedResponse
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\Feed
      */
     public function getFeed($feed_id)
     {
