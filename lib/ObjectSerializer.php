@@ -214,6 +214,7 @@ class ObjectSerializer
      */
     public static function deserialize($data, $class, $httpHeaders = null)
     {
+        $classname = self::get_class_name($class);
         if (null === $data) {
             return null;
         } elseif ('map[' === substr($class, 0, 4)) { // for associative array e.g. map[string,int]
@@ -264,10 +265,10 @@ class ObjectSerializer
             settype($data, $class);
 
             return $data;
-        } elseif (method_exists($class, 'getModelName') && in_array($class::getModelName(), ['Timestamp', 'Decimal'], true)) {
+        } elseif (in_array($classname, ['Timestamp', 'Decimal'], true)) {
             settype($data, 'string');
             return $data;
-        } elseif (method_exists($class, 'getModelName') && 'Quantity' === $class::getModelName()) {
+        } elseif ('Quantity' === $classname) {
             settype($data, 'int');
             return $data;
         } elseif ('\SplFileObject' === $class) {
@@ -320,5 +321,18 @@ class ObjectSerializer
 
             return $instance;
         }
+    }
+
+    /**
+     * @param string $classname
+     * @return false|string
+     */
+    public static function get_class_name(string $classname)
+    {
+        $pos = strrpos($classname, '\\');
+        if ($pos !== false) {
+            return substr($classname, $pos + 1);
+        }
+        return false;
     }
 }
