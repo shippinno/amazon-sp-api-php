@@ -4,7 +4,7 @@
  *
  * PHP version 5
  *
- * @author   Stefan Neuhaus / ClouSale
+ * @author   Eiji Muraguchi / Shippinno
  */
 
 /**
@@ -24,10 +24,9 @@ use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 /**
  * CreateFulfillmentOrderRequest Class Doc Comment.
  *
-
  * @description The request body schema for the createFulfillmentOrder operation.
  *
- * @author   Stefan Neuhaus / ClouSale
+ * @author   Eiji Muraguchi / Shippinno
  */
 class CreateFulfillmentOrderRequest implements ModelInterface, ArrayAccess
 {
@@ -47,20 +46,22 @@ class CreateFulfillmentOrderRequest implements ModelInterface, ArrayAccess
      */
     protected static $swaggerTypes = [
         'marketplace_id' => 'string',
-'seller_fulfillment_order_id' => 'string',
-'displayable_order_id' => 'string',
-'displayable_order_date' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Timestamp',
-'displayable_order_comment' => 'string',
-'shipping_speed_category' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\ShippingSpeedCategory',
-'delivery_window' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\DeliveryWindow',
-'destination_address' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Address',
-'fulfillment_action' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\FulfillmentAction',
-'fulfillment_policy' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\FulfillmentPolicy',
-'cod_settings' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\CODSettings',
-'ship_from_country_code' => 'string',
-'notification_emails' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\NotificationEmailList',
-'feature_constraints' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\FeatureSettings[]',
-'items' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\CreateFulfillmentOrderItemList',    ];
+        'seller_fulfillment_order_id' => 'string',
+        'displayable_order_id' => 'string',
+        'displayable_order_date' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Timestamp',
+        'displayable_order_comment' => 'string',
+        'shipping_speed_category' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\ShippingSpeedCategory',
+        'delivery_window' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\DeliveryWindow',
+        'destination_address' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Address',
+        'fulfillment_action' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\FulfillmentAction',
+        'fulfillment_policy' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\FulfillmentPolicy',
+        'cod_settings' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\CODSettings',
+        'ship_from_country_code' => 'string',
+        'notification_emails' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\NotificationEmailList',
+        'feature_constraints' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\FeatureSettings[]',
+        'items' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\CreateFulfillmentOrderItemList',
+        'delivery_preferences' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\DeliveryPreferences',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -69,20 +70,22 @@ class CreateFulfillmentOrderRequest implements ModelInterface, ArrayAccess
      */
     protected static $swaggerFormats = [
         'marketplace_id' => null,
-'seller_fulfillment_order_id' => null,
-'displayable_order_id' => null,
-'displayable_order_date' => null,
-'displayable_order_comment' => null,
-'shipping_speed_category' => null,
-'delivery_window' => null,
-'destination_address' => null,
-'fulfillment_action' => null,
-'fulfillment_policy' => null,
-'cod_settings' => null,
-'ship_from_country_code' => null,
-'notification_emails' => null,
-'feature_constraints' => null,
-'items' => null,    ];
+        'seller_fulfillment_order_id' => null,
+        'displayable_order_id' => null,
+        'displayable_order_date' => null,
+        'displayable_order_comment' => null,
+        'shipping_speed_category' => null,
+        'delivery_window' => null,
+        'destination_address' => null,
+        'fulfillment_action' => null,
+        'fulfillment_policy' => null,
+        'cod_settings' => null,
+        'ship_from_country_code' => null,
+        'notification_emails' => null,
+        'feature_constraints' => null,
+        'items' => null,
+        'delivery_preferences' => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -112,20 +115,22 @@ class CreateFulfillmentOrderRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'marketplace_id' => 'marketplaceId',
-'seller_fulfillment_order_id' => 'sellerFulfillmentOrderId',
-'displayable_order_id' => 'displayableOrderId',
-'displayable_order_date' => 'displayableOrderDate',
-'displayable_order_comment' => 'displayableOrderComment',
-'shipping_speed_category' => 'shippingSpeedCategory',
-'delivery_window' => 'deliveryWindow',
-'destination_address' => 'destinationAddress',
-'fulfillment_action' => 'fulfillmentAction',
-'fulfillment_policy' => 'fulfillmentPolicy',
-'cod_settings' => 'codSettings',
-'ship_from_country_code' => 'shipFromCountryCode',
-'notification_emails' => 'notificationEmails',
-'feature_constraints' => 'featureConstraints',
-'items' => 'items',    ];
+        'seller_fulfillment_order_id' => 'sellerFulfillmentOrderId',
+        'displayable_order_id' => 'displayableOrderId',
+        'displayable_order_date' => 'displayableOrderDate',
+        'displayable_order_comment' => 'displayableOrderComment',
+        'shipping_speed_category' => 'shippingSpeedCategory',
+        'delivery_window' => 'deliveryWindow',
+        'destination_address' => 'destinationAddress',
+        'fulfillment_action' => 'fulfillmentAction',
+        'fulfillment_policy' => 'fulfillmentPolicy',
+        'cod_settings' => 'codSettings',
+        'ship_from_country_code' => 'shipFromCountryCode',
+        'notification_emails' => 'notificationEmails',
+        'feature_constraints' => 'featureConstraints',
+        'items' => 'items',
+        'delivery_preferences' => 'deliveryPreferences',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -134,20 +139,22 @@ class CreateFulfillmentOrderRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'marketplace_id' => 'setMarketplaceId',
-'seller_fulfillment_order_id' => 'setSellerFulfillmentOrderId',
-'displayable_order_id' => 'setDisplayableOrderId',
-'displayable_order_date' => 'setDisplayableOrderDate',
-'displayable_order_comment' => 'setDisplayableOrderComment',
-'shipping_speed_category' => 'setShippingSpeedCategory',
-'delivery_window' => 'setDeliveryWindow',
-'destination_address' => 'setDestinationAddress',
-'fulfillment_action' => 'setFulfillmentAction',
-'fulfillment_policy' => 'setFulfillmentPolicy',
-'cod_settings' => 'setCodSettings',
-'ship_from_country_code' => 'setShipFromCountryCode',
-'notification_emails' => 'setNotificationEmails',
-'feature_constraints' => 'setFeatureConstraints',
-'items' => 'setItems',    ];
+        'seller_fulfillment_order_id' => 'setSellerFulfillmentOrderId',
+        'displayable_order_id' => 'setDisplayableOrderId',
+        'displayable_order_date' => 'setDisplayableOrderDate',
+        'displayable_order_comment' => 'setDisplayableOrderComment',
+        'shipping_speed_category' => 'setShippingSpeedCategory',
+        'delivery_window' => 'setDeliveryWindow',
+        'destination_address' => 'setDestinationAddress',
+        'fulfillment_action' => 'setFulfillmentAction',
+        'fulfillment_policy' => 'setFulfillmentPolicy',
+        'cod_settings' => 'setCodSettings',
+        'ship_from_country_code' => 'setShipFromCountryCode',
+        'notification_emails' => 'setNotificationEmails',
+        'feature_constraints' => 'setFeatureConstraints',
+        'items' => 'setItems',
+        'delivery_preferences' => 'setDeliveryPreferences',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -156,20 +163,22 @@ class CreateFulfillmentOrderRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'marketplace_id' => 'getMarketplaceId',
-'seller_fulfillment_order_id' => 'getSellerFulfillmentOrderId',
-'displayable_order_id' => 'getDisplayableOrderId',
-'displayable_order_date' => 'getDisplayableOrderDate',
-'displayable_order_comment' => 'getDisplayableOrderComment',
-'shipping_speed_category' => 'getShippingSpeedCategory',
-'delivery_window' => 'getDeliveryWindow',
-'destination_address' => 'getDestinationAddress',
-'fulfillment_action' => 'getFulfillmentAction',
-'fulfillment_policy' => 'getFulfillmentPolicy',
-'cod_settings' => 'getCodSettings',
-'ship_from_country_code' => 'getShipFromCountryCode',
-'notification_emails' => 'getNotificationEmails',
-'feature_constraints' => 'getFeatureConstraints',
-'items' => 'getItems',    ];
+        'seller_fulfillment_order_id' => 'getSellerFulfillmentOrderId',
+        'displayable_order_id' => 'getDisplayableOrderId',
+        'displayable_order_date' => 'getDisplayableOrderDate',
+        'displayable_order_comment' => 'getDisplayableOrderComment',
+        'shipping_speed_category' => 'getShippingSpeedCategory',
+        'delivery_window' => 'getDeliveryWindow',
+        'destination_address' => 'getDestinationAddress',
+        'fulfillment_action' => 'getFulfillmentAction',
+        'fulfillment_policy' => 'getFulfillmentPolicy',
+        'cod_settings' => 'getCodSettings',
+        'ship_from_country_code' => 'getShipFromCountryCode',
+        'notification_emails' => 'getNotificationEmails',
+        'feature_constraints' => 'getFeatureConstraints',
+        'items' => 'getItems',
+        'delivery_preferences' => 'getDeliveryPreferences',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -242,6 +251,7 @@ class CreateFulfillmentOrderRequest implements ModelInterface, ArrayAccess
         $this->container['notification_emails'] = isset($data['notification_emails']) ? $data['notification_emails'] : null;
         $this->container['feature_constraints'] = isset($data['feature_constraints']) ? $data['feature_constraints'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['delivery_preferences'] = isset($data['delivery_preferences']) ? $data['delivery_preferences'] : null;
     }
 
     /**
@@ -645,6 +655,30 @@ class CreateFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     public function setItems($items)
     {
         $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_preferences.
+     *
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\DeliveryPreferences
+     */
+    public function getDeliveryPreferences()
+    {
+        return $this->container['delivery_preferences'];
+    }
+
+    /**
+     * Sets delivery_preferences.
+     *
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\DeliveryPreferences $deliveryPreferences delivery_preferences
+     *
+     * @return $this
+     */
+    public function setDeliveryPreferences($deliveryPreferences)
+    {
+        $this->container['delivery_preferences'] = $deliveryPreferences;
 
         return $this;
     }
